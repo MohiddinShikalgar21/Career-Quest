@@ -1,3 +1,2 @@
-# INTELLIGENT CAREER GUIDANCE SYSTEM
+# CareerQuest
 
-Youtube video link: https://www.youtube.com/watch?v=fMQfYWDIpWU
