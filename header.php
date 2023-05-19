@@ -4,7 +4,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-		<title>Intelligent Career Guidance</title>
+		<title>CareerQuest</title>
 
 		<!-- Google font -->
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
@@ -18,12 +18,23 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="css/s.css"/>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<style>
+			a:hover{
+				background-color:blue;
+			}
+
+			.dropdown:hover{
+              background-color:#3f4a5dd6;
+			}
+			.dropdown-content{
+				background-color:#3f4a5dd6;
+				border-radius:12px;
+			}
+			.dropdown-content a:hover{
+				background-color:white;
+				color:black;
+			}
+		</style>
 
     </head>
 	<body>
@@ -35,7 +46,7 @@
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a class="logo" href="main.php">CareerCompass</a>
+						<a class="logo" href="main.php">CareerQuest</a>
 					</div>
 					<!-- /Logo -->
 
@@ -59,8 +70,8 @@
                             <a class="dropbtn" href="javascript:void(0)">Services <span>&#11167;</span></a>
                             <div class="dropdown-content">
 								<a href="login.php">Career Prediction</a>
-                                <a href="#">Courses</a>
-                                <a href="#">Knowledge Network</a>
+                                <a href="courses.php">Courses</a>
+                                <a href="blog.php">Knowledge Network</a>
 								
                             </div>
                         </li>
@@ -85,8 +96,8 @@
                             <a class="dropbtn" href="javascript:void(0)">Services <span>&#11167;</span></i></a>
                             <div class="dropdown-content">
 								<a href="http://127.0.0.1:5000/">Career Prediction</a>
-                                <a href="#">Courses</a>
-                                <a href="#">Knowledge Network</a>
+                                <a href="localhost/Career-Quest/courses.php">Courses</a>
+                                <a href="localhost/Career-Quest/blog.php">Knowledge Network</a>
 								
                             </div>
                         </li>

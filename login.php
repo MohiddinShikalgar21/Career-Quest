@@ -96,19 +96,51 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/s.css"/>
     <style>
-        body{ font: 14px sans-serif;
-        margin:auto; 
-        margin-top: 120px;
-        width:500px; 
-        background-color: blueviolet;
-        color: black;
-        
-        
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+        *{
+          font-family: 'Nunito', sans-serif;  
         }
-        .wrapper{  border-style: solid;
-        border-color: blue;
-        border-radius: 30px;
-        padding: 20px;  background-color: white;}
+        body{ 
+          margin:auto; 
+          margin-top: 120px;
+          width:500px; 
+          background: -webkit-linear-gradient(to right, #007bff,#6f42c1); 
+          background: linear-gradient(to right, #008cffba, #8d42c1); 
+          color:white;        
+        }
+        .wrapper{  
+          border-style: solid;
+          border-color: white;
+          border-radius: 30px;
+          padding: 20px;  
+          background-color: rgba(0, 0, 0, 0.1);
+          color:white;
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 10px;
+	      box-shadow: 0 0 20px #000;
+	      position: absolute;
+	      width: 500px;
+        }
+        .form-control{
+            border-style:solid;
+            border-color:white;
+            border-radius:20px;
+            margin: 10px 0px;
+            background-color:whitesmoke;	
+        }
+        a{
+            color:white;
+            margin-left:10px;
+        }
+        .btn-primary{
+            box-shadow: 0 0 3px #000;
+            background-color:#007bff87;
+            margin-top:10px;
+        }
+        .btn-primary:hover{
+            background-color:#e83e8ce3;
+        }
     </style>
 </head>
 <body>
@@ -119,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a class="logo" href="main.php" style="padding-bottom: 10px;">Career.ly</a>
+						<a class="logo" href="main.php" style="padding-bottom: 10px;">CareerQuest</a>
 					</div>
 					<!-- /Logo -->
 
@@ -129,8 +161,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<!-- /Header -->
 
     <div class="wrapper" >
-        <h2>Login</h2>
-        <p>Please fill in your credentials to login.</p>
+        <h2 style="color:white;margin-left:30%;">User Login</h2><br>
+        <p style="font-size:16px;">Please fill in your User Credentials to login.</p>
 
         <?php 
         if(!empty($login_err)){
@@ -139,21 +171,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         ?>
 
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group">
-                <label><b>Username</b></label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+            <div class="form-group" style="color:white;">
+                <input type="text" name="username" placeholder="Enter Your Username." style="background-color:white;" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">
-                <label><b>Password</b></label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                <input type="password" name="password" placeholder="Enter Your Password." style="background-color:white;" class="form-control<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Login">
+                <input type="submit" class="btn btn-primary" value="Login" style="width:70%;margin-left:15%;border:white;">
+            </div><br>
+            <div style="align-items:centre;justify-content:centre;">
+            <p style="font-size: 16px;margin-left:15%;">Don't have an account?   <a href="register.php">Sign Up Now</a></p>
+            <p style="font-size: 16px;margin-left:22%;">Forgot Password?   <a href="reset.php">Click Here</a></p>
             </div>
-            <p style="font-size: 16px;">Don't have an account? <a href="register.php" style="color:blue;">Sign up now</a>.</p>
-            <p style="font-size: 16px;">Forgot Password? <a href="reset.php" style="color:blue;">click here</a>.</p>
         </form>
     </div>
 </body>

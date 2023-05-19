@@ -101,24 +101,64 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/s.css"/>
     <style>
-        body{ font: 14px sans-serif;
-        margin:auto; 
-        margin-top: 120px;
-        width:500px; 
-        background-color: blueviolet;
-        color: black;
-        
-        
+        @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+        *{
+          font-family: 'Nunito', sans-serif;  
         }
-        .wrapper{  border-style: solid;
-        border-color: blue;
-        border-radius: 30px;
-        padding: 20px;  background-color: white;}
+        body{ 
+          margin:auto; 
+          margin-top: 120px;
+          width:500px; 
+          background: -webkit-linear-gradient(to right, #007bff,#6f42c1); 
+          background: linear-gradient(to right, #008cffba, #8d42c1); 
+          color:white;        
+        }
+        .wrapper{  
+          border-style: solid;
+          border-color: white;
+          border-radius: 30px;
+          padding: 20px;  
+          background-color: rgba(0, 0, 0, 0.1);
+          color:white;
+	      margin: auto auto;
+	      padding: 40px;
+	      border-radius: 10px;
+	      box-shadow: 0 0 20px #000;
+	      position: absolute;
+	      width: 500px;
+        }
+        .form-control{
+            border-style:solid;
+            border-color:white;
+            border-radius:20px;
+            margin: 10px 0px;
+            background-color:whitesmoke;	
+        }
+        a{
+            color:white;
+            margin-left:10px;
+        }
+        .btn-primary{
+            box-shadow: 0 0 3px #000;
+            background-color:#007bff87;
+            margin-top:10px;
+        }
+        .btn-primary:hover{
+            background-color:#e83e8ce3;
+        }
+        .btn-secondary{
+            box-shadow: 0 0 3px #000;
+            background-color:#e0714a80;
+            margin-top:10px;
+        }
+        .btn-secondary:hover{
+            background-color:#e83e8ce3;
+        }
     </style>
 </head>
 <body>
     <!--Header-->
-    <header id="header" class="transparent-nav" style="position: fixed;background-color: #3e4a61; top: 0;">
+    <header id="header" class="transparent-nav" style="position: fixed;background-color: rgb(120, 70, 167); top: 0;">
 			<div class="container">
 
 				<div class="navbar-header">
@@ -134,29 +174,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		<!-- /Header -->
 
     <div class="wrapper">
-        <h2>Sign Up</h2>
+        <h3 style="color:white;margin-left:10%;">New User Registration</h3>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
-                <label><b>Username</b></label>
-                <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                <input type="text" name="username" placeholder="Enter Your Username." style="background-color:white;" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
                 <span class="invalid-feedback"><?php echo $username_err; ?></span>
             </div>    
             <div class="form-group">
-                <label><b>Password</b></label>
-                <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
+                <input type="password" name="password" placeholder="Enter Your Password." style="background-color:white;" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
                 <span class="invalid-feedback"><?php echo $password_err; ?></span>
             </div>
             <div class="form-group">
-                <label><b>Confirm Password</b></label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
+                <input type="password" name="confirm_password" placeholder="Confirm Your Password." style="background-color:white;" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
                 <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-            </div>
+            </div><br>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
-                <input type="reset" class="btn btn-secondary ml-2" value="Reset">
+                <input type="submit" style="width:40%;margin-left:6%;" class="btn btn-primary" value="Submit">
+                <input type="reset" style="width:40%;margin-left:20%;" class="btn btn-secondary ml-2" value="Reset">
             </div>
-            <p style="font-size: 16px;">Already have an account? <a href="login.php" style="color: blue;">Login here</a>.</p>
+            <p style="font-size: 16px;">Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
     </div>    
 </body>

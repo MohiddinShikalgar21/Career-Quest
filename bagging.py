@@ -20,8 +20,7 @@ dataset.dropna(how ='all', inplace = True)
 
   
 seed =5 
-kfold = model_selection.KFold(n_splits = 15,
-                       random_state = seed)
+kfold = model_selection.KFold(n_splits = 15)
   
 # initialize the base classifier
 base_cls = DecisionTreeClassifier()
@@ -30,7 +29,7 @@ base_cls = DecisionTreeClassifier()
 num_trees = 50
   
 # bagging classifier
-model = BaggingClassifier(base_estimator = base_cls,
+model = BaggingClassifier(estimator = base_cls,
                           n_estimators = num_trees,
                           random_state = seed)
   
