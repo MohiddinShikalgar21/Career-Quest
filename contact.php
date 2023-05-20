@@ -57,9 +57,9 @@ session_start();
 					<div class="col-md-5 col-md-offset-1">
 						<h4>Contact Information</h4>
 						<ul class="contact-details">
-							<li><i class="fa fa-envelope"></i>Careerly@gmail.com</li>
-							<li><i class="fa fa-phone"></i>122-547-223-45</li>
-							<li><i class="fa fa-map-marker"></i>Santacruz west</li>
+							<li><i class="fa fa-envelope"></i>TY64@gmail.com</li>
+							<li><i class="fa fa-phone"></i>9999999990</li>
+							<li><i class="fa fa-map-marker"></i>Upper Chi IIT Bibwewadi Pune</li>
 						</ul>
 
 						<!-- contact map -->
@@ -91,7 +91,7 @@ session_start();
 					<!-- footer logo -->
 					<div class="col-md-6">
 						<div class="footer-logo">
-							<a class="logo" style="font-size: 30px;" href="main.html">Career.ly</a>
+							<a class="logo" style="font-size: 30px;" href="main.html">CareerQuest</a>
 						</div>
 					</div>
 					<!-- footer logo -->
@@ -109,13 +109,11 @@ session_start();
 					</div>
 					<!-- /social -->
 
-					<!-- copyright -->
 					<div class="col-md-8 col-md-pull-4">
 						<div class="footer-copyright">
-							<span>&copy; Copyright 2021. All Rights Reserved. </span>
+							<span>&copy; Copyright 2023. TY64 </span>
 						</div>
 					</div>
-					<!-- /copyright -->
 
 				</div>
 				<!-- row -->

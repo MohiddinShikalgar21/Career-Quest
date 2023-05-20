@@ -5,6 +5,15 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<style>
+			.col-md-4:hover{
+				padding:3%;
+				background-color:#337ab799;
+				border-radius:14px;
+			}
+		</style>
+	</head>
 <?php include 'header.php'?>
         <!-- Home -->
 		<div id="home" class="hero-area">
@@ -113,30 +122,21 @@ session_start();
 							</div>
 						</div>
 					</div>
-					<!-- /feature -->
 									
 				</div>
-				<!-- /row -->
 				
 				<hr class="section-hr">
 
 			</div>
-			<!-- /container -->
 
 		</div>
-		<!-- /Why us -->
 
-		<!-- Call To Action -->
 		<div id="cta" class="section" style="height: 400px;">
 
-			<!-- Backgound Image -->
 			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/bg1.jpg)"></div>
-			<!-- /Backgound Image -->
 
-			<!-- container -->
 			<div class="container">
 
-				<!-- row -->
 				<div class="row">
 
 					<div class="col-md-6">
