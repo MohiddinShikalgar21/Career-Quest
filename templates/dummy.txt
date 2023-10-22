@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <style>
+        /* Your CSS styles here */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to HSBC MSSOT Department!</h1>
+            <p>Your exciting journey begins here.</p>
+        </div>
+
+        <div class="video-container">
+            <!-- Video Fallback Image and Video (as previously defined) -->
+        </div>
+
+        <div class="content">
+            <h2>Your Onboarding Essentials:</h2>
+            <ul>
+                <li th:each="link : ${links}">
+                    <a th:href="${link.url}" th:text="${link.title}">Link Title</a>
+                </li>
+            </ul>
+
+            <p>If you have any questions or need assistance, don't hesitate to reach out to our HR department.</p>
+
+            <div class="button-container">
+                <a class="button" href="#">Get Started</a>
+            </div>
+        </div>
+
+        <!-- Other sections (personal message, timeline, contact information) as needed -->
+
+        <div class="footer">
+            <p>&copy; 2023 HSBC. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Contact Us</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+Controller ::
+
+  @Controller
+public class EmailController {
+
+    @Autowired
+    private LinkService linkService; // You should have a service for fetching links
+
+    @GetMapping("/send-welcome-email")
+    public String sendWelcomeEmail(Model model) {
+        List<Link> links = linkService.getAllLinks(); // Fetch links from your database
+        model.addAttribute("links", links);
+        return "welcome-email";
+    }
+}
