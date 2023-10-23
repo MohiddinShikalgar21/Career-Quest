@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Your Landing Page</title>
+    <style type="text/css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 24px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+}
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.hero {
+    background-image: url('background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 200px 0;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+       .features {
+         background-color: #f6f6f6;
+         padding: 60px 0;
+       }
+.features h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature i {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.pricing {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 60px 0;
+}
+
+.pricing h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.pricing-plan {
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    display: inline-block;
+}
+
+.pricing-plan h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pricing-plan .price {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    margin-bottom: 40px;
+    font-size: 18px;
+}
+       .testimonials {
+          background-color: #f9f9f9;
+          padding: 60px 0;
+       }
+
+      .testimonials h2 {
+         font-size: 28px;
+         margin-bottom: 40px;
+         color: #333;
+       }
+
+      .testimonial {
+         text-align: center;
+         margin: 0 20px;
+      }
+
+      .testimonial img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin: 20px 0; 
+      }        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a class="logo" href="#">Your App Name</a>
+                <ul class="nav-links">
+                    <li><a href="/send-email">Send an Email</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/pricing">Pricing</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Your App</h1>
+            <p>Your app's mission or a brief introduction.</p>
+            <a href="/send-email" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Features</h2>
+            <div class="feature">
+                <i class="fas fa-cogs"></i>
+                <h3>Feature 1</h3>
+                <p>Details about Feature 1.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-chart-line"></i>
+                <h3>Feature 2</h3>
+                <p>Details about Feature 2.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Feature 3</h3>
+                <p>Details about Feature 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <img src="user1.jpg" alt="User 1">
+                <p>"Your app is amazing. It made my life easier!"</p>
+            </div>
+            <div class="testimonial">
+                <img src="user2.jpg" alt="User 2">
+                <p>"I can't imagine my day without your app."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <div class="pricing-plan">
+                <h3>Basic Plan</h3>
+                <p>For small teams and individuals.</p>
+                <span class="price">$10/month</span>
+                <a href="/signup" class="btn">Sign Up</a>
+            </div>
+            <div class="pricing-plan">
+                <h3>Premium Plan</h3>
+                <p>For larger teams and businesses.</p>
+                <span class="price">$25/month</span>
+                <a href="/signup" class="btn">Sign Up</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have a question or need support? Contact us!</p>
+            <a href="/contact" class="btn">Contact</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Your App Name</p>
+        </div>
+    </footer>
+</body>
+</html>
