@@ -1,0 +1,54 @@
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.util.Properties;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class EmailService {
+
+    public void sendEmail(String recipient, String subject, String link, String description) throws MessagingException, IOException {
+        // Configure your SMTP server and sender credentials
+        String smtpHost = "your-smtp-host.com";
+        String username = "your-email@example.com";
+        String password = "your-password";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.host", smtpHost);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+        message.setSubject(subject);
+
+        // Read the HTML content from a .html file
+        String htmlContent = readHtmlContentFromFile("path/to/your/email_template.html");
+
+        // Replace placeholders with actual values
+        htmlContent = htmlContent.replace("{link}", link);
+        htmlContent = htmlContent.replace("{description}", description);
+
+        message.setContent(htmlContent, "text/html");
+
+        Transport.send(message);
+    }
+
+    private String readHtmlContentFromFile(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line);
+            }
+        }
+        return content.toString();
+    }
