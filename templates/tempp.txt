@@ -1,0 +1,40 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+
+public class CombineHTMLFiles {
+    public static void main(String[] args) {
+        String firstHTMLFilePath = "path/to/first.html";
+        String secondHTMLFilePath = "path/to/second.html";
+        String newHTMLFilePath = "path/to/new.html";
+
+        try {
+            // Read content from the first HTML file
+            String firstHTMLContent = new String(Files.readAllBytes(Path.of(firstHTMLFilePath)));
+
+            // Read content from the second HTML file
+            String secondHTMLContent = new String(Files.readAllBytes(Path.of(secondHTMLFilePath)));
+
+            // Manipulate the content by adding necessary tags
+            String modifiedFirstHTMLContent = addCustomTags(firstHTMLContent);
+            String modifiedSecondHTMLContent = addCustomTags(secondHTMLContent);
+
+            // Combine the content from the two HTML files
+            String combinedHTMLContent = modifiedFirstHTMLContent + modifiedSecondHTMLContent;
+
+            // Write the combined content to a new HTML file, overwriting if it exists
+            Files.write(Path.of(newHTMLFilePath), combinedHTMLContent.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+
+            System.out.println("New HTML file created or overwritten successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Add custom tags or manipulate the content as needed
+    private static String addCustomTags(String content) {
+        // Add your custom logic here
+        return content;
+    }
+}
