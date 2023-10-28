@@ -1,0 +1,141 @@
+// Login.js
+import React, { useState } from 'react';
+
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Validate the form inputs here
+    if (!email || !password) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    // Perform authentication logic here
+    if (/* Your authentication logic */) {
+      // Redirect the user to a different page upon successful login
+      window.location.href = '/dashboard';
+    } else {
+      setError('Invalid email or password');
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+        {error && <p className="error">{error}</p>}
+      </form>
+    </div>
+  );
+}
+
+export default Login;
+
+// AddJoiner.js
+import React, { useState } from 'react';
+
+function AddJoiner() {
+  const [staffId, setStaffId] = useState('');
+  const [joiningDate, setJoiningDate] = useState('');
+
+  const handleAddJoiner = (e) => {
+    e.preventDefault();
+
+    // Send the data to your API for adding new joiners
+    const newData = { staffId, joiningDate };
+    // Use a function to send the data to your API
+    sendJoinerDataToAPI(newData);
+  };
+
+  return (
+    <div className="add-joiner-container">
+      <form onSubmit={handleAddJoiner}>
+        <input
+          type="text"
+          placeholder="Staff ID"
+          value={staffId}
+          onChange={(e) => setStaffId(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Joining Date"
+          value={joiningDate}
+          onChange={(e) => setJoiningDate(e.target.value)}
+        />
+        <button type="submit">Add Joiner</button>
+      </form>
+    </div>
+  );
+}
+
+export default AddJoiner;
+
+// AddLinks.js
+import React, { useState } from 'react';
+
+function AddLinks() {
+  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
+  const [url, setUrl] = useState('');
+
+  const handleAddLink = (e) => {
+    e.preventDefault();
+
+    // Send the link data to your API
+    const newLinkData = { name, title, details, url };
+    // Use a function to send the data to your API
+    sendLinkDataToAPI(newLinkData);
+  };
+
+  return (
+    <div className="add-links-container">
+      <form onSubmit={handleAddLink}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Details"
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <button type="submit">Add Link</button>
+      </form>
+    </div>
+  );
+}
+
+export default AddLinks;
