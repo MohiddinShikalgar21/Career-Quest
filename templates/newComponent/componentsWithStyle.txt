@@ -1,0 +1,302 @@
+/* AddLinks.css */
+.add-links-container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-links-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-links-container input {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-links-container button {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* AddJoiner.css */
+.add-joiner-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-joiner-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-joiner-container input {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-joiner-container button {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Login.css */
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container input {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-container button {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container .error {
+  color: red;
+  margin: 5px 0;
+}
+
+
+import React, { useState } from 'react';
+import './AddLinks.css'; // Import your CSS file for styling
+
+function AddLinks() {
+  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
+  const [url, setUrl] = useState('');
+
+  const handleAddLink = async (e) => {
+    e.preventDefault();
+
+    // Perform client-side validation
+    if (!name || !title || !details || !url) {
+      // Handle validation errors
+      return;
+    }
+
+    // Send a request to your API to add a new link
+    try {
+      const response = await fetch('your-add-links-api-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, title, details, url }),
+      });
+
+      if (response.status === 200) {
+        // Handle success, e.g., show a success message
+      } else {
+        // Handle errors, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or server errors
+    }
+  };
+
+  return (
+    <div className="add-links-container">
+      <form onSubmit={handleAddLink}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Details"
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <button type="submit">Add Link</button>
+      </form>
+    </div>
+  );
+}
+
+export default AddLinks;
+
+
+import React, { useState } from 'react';
+import './AddJoiner.css'; // Import your CSS file for styling
+
+function AddJoiner() {
+  const [staffId, setStaffId] = useState('');
+  const [joiningDate, setJoiningDate] = useState('');
+
+  const handleAddJoiner = async (e) => {
+    e.preventDefault();
+
+    // Perform client-side validation
+    if (!staffId || !joiningDate) {
+      // Handle validation errors
+      return;
+    }
+
+    // Send a request to your API to add a new joiner
+    try {
+      const response = await fetch('your-add-joiner-api-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ staffId, joiningDate }),
+      });
+
+      if (response.status === 200) {
+        // Handle success, e.g., show a success message
+      } else {
+        // Handle errors, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or server errors
+    }
+  };
+
+  return (
+    <div className="add-joiner-container">
+      <form onSubmit={handleAddJoiner}>
+        <input
+          type="text"
+          placeholder="Staff ID"
+          value={staffId}
+          onChange={(e) => setStaffId(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Joining Date"
+          value={joiningDate}
+          onChange={(e) => setJoiningDate(e.target.value)}
+        />
+        <button type="submit">Add Joiner</button>
+      </form>
+    </div>
+  );
+}
+
+export default AddJoiner;
+
+
+import React, { useState } from 'react';
+import './Login.css'; // Import your CSS file for styling
+
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    // Perform client-side validation
+    if (!email || !password) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    // Send login request to your API
+    try {
+      const response = await fetch('your-login-api-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.status === 200) {
+        // Redirect to a new page upon successful login
+        window.location.href = '/dashboard';
+      } else {
+        setError('Invalid email or password');
+      }
+    } catch (error) {
+      setError('An error occurred while logging in.');
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <form onSubmit={handleLogin}>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+        {error && <p className="error">{error}</p>}
+      </form>
+    </div>
+  );
+}
+
+export default Login;
+
+
+
+
