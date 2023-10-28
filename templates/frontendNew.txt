@@ -39,3 +39,93 @@ function Login() {
 }
 
 export default Login;
+
+
+// src/components/AddJoiner.js
+import React, { useState } from 'react';
+
+function AddJoiner() {
+  const [staffId, setStaffId] = useState('');
+  const [joiningDate, setJoiningDate] = useState('');
+
+  const handleAddJoiner = async () => {
+    try {
+      // Send a POST request to your add joiner API
+      const response = await fetch('http://localhost:8080/email-onboarding/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ staffId, joiningDate }),
+      });
+
+      if (response.ok) {
+        // Handle successful addition
+        console.log('Joiner added successfully');
+      } else {
+        // Handle addition failure
+        console.error('Failed to add joiner');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Add Joiner</h2>
+      <input type="text" placeholder="Staff ID" value={staffId} onChange={(e) => setStaffId(e.target.value)} />
+      <input type="text" placeholder="Joining Date" value={joiningDate} onChange={(e) => setJoiningDate(e.target.value)} />
+      <button onClick={handleAddJoiner}>Add Joiner</button>
+    </div>
+  );
+}
+
+export default AddJoiner;
+
+
+// src/components/AddLinks.js
+import React, { useState } from 'react';
+
+function AddLinks() {
+  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
+  const [url, setUrl] = useState('');
+
+  const handleAddLink = async () => {
+    try {
+      // Send a POST request to your add links API
+      const response = await fetch('http://localhost:8080/email-onboarding/add-links', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, title, details, url }),
+      });
+
+      if (response.ok) {
+        // Handle successful addition
+        console.log('Link added successfully');
+      } else {
+        // Handle addition failure
+        console.error('Failed to add link');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Add Link</h2>
+      <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} />
+      <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input type="text" placeholder="Details" value={details} onChange={(e) => setDetails(e.target.value)} />
+      <input type="text" placeholder="URL" value={url} onChange={(e) => setUrl(e.target.value)} />
+      <button onClick={handleAddLink}>Add Link</button>
+    </div>
+  );
+}
+
+export default AddLinks;
