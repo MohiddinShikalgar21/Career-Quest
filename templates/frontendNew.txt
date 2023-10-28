@@ -1,0 +1,41 @@
+// src/components/Login.js
+import React, { useState } from 'react';
+
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      // Send a POST request to your login API
+      const response = await fetch('http://localhost:8080/email-onboarding/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Handle successful login
+        console.log('Logged in successfully');
+      } else {
+        // Handle login failure
+        console.error('Login failed');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+}
+
+export default Login;
