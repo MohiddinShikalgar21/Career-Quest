@@ -178,3 +178,27 @@ function Navigation() {
 
 export default Navigation;
 
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navigation from './Navigation'; // Import your Navigation component
+import AddLinks from './components/AddLinks';
+import Login from './components/Login';
+import AddJoiner from './components/AddJoiner';
+import './App.css';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navigation /> {/* Include the Navigation component */}
+        <Route path="/add-links" component={AddLinks} />
+        <Route path="/login" component={Login} />
+        <Route path="/add-joiner" component={AddJoiner} />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+
