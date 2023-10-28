@@ -1,0 +1,21 @@
+// AuthenticatedLayout.js
+import React from 'react';
+import { Routes, Route, Outlet } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import AddLinks from './AddLinks'; // Import your AddLinks component
+import PrivateRoute from './PrivateRoute'; // Import the PrivateRoute component
+
+function AuthenticatedLayout() {
+  return (
+    <div>
+      <h1>Authenticated Layout</h1>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <PrivateRoute path="/add-links" element={<AddLinks />} /> {/* Protect AddLinks route */}
+      </Routes>
+      <Outlet />
+    </div>
+  );
+}
+
+export default AuthenticatedLayout;
