@@ -1,0 +1,31 @@
+// Navigation component (e.g., Navigation.js)
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+const navigationStyles = {
+  backgroundColor: '#333',
+  padding: '10px',
+};
+
+const linkStyles = {
+  color: 'white',
+  textDecoration: 'none',
+  margin: '0 10px',
+  fontSize: '18px',
+};
+
+function Navigation() {
+  return (
+    <div style={navigationStyles}>
+      <Link to="/dashboard" style={linkStyles}>
+        Dashboard
+      </Link>
+      <Link to="/add-links" style={linkStyles}>
+        Add Links
+      </Link>
+      {/* Other navigation links */}
+    </div>
+  );
+}
+
+export default Navigation;
