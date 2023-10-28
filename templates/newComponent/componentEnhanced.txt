@@ -1,0 +1,72 @@
+import React, { useState } from 'react';
+import './AddLinks.css'; // Import your CSS file for styling
+
+function AddLinks() {
+  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
+  const [details, setDetails] = useState('');
+  const [url, setUrl] = useState('');
+
+  const handleAddLink = async (e) => {
+    e.preventDefault();
+
+    // Perform client-side validation
+    if (!name || !title || !details || !url) {
+      // Handle validation errors
+      return;
+    }
+
+    // Send a request to your API to add a new link
+    try {
+      const response = await fetch('your-add-links-api-endpoint', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, title, details, url }),
+      });
+
+      if (response.status === 200) {
+        // Handle success, e.g., show a success message
+      } else {
+        // Handle errors, e.g., show an error message
+      }
+    } catch (error) {
+      // Handle network or server errors
+    }
+  };
+
+  return (
+    <div className="add-links-container">
+      <form onSubmit={handleAddLink}>
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Details"
+          value={details}
+          onChange={(e) => setDetails(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+        />
+        <button type="submit">Add Link</button>
+      </form>
+    </div>
+  );
+}
+
+export default AddLinks;
