@@ -129,3 +129,29 @@ function AddLinks() {
 }
 
 export default AddLinks;
+
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'; // For routing
+import AddLinks from './components/AddLinks';
+import Login from './components/Login';
+import AddJoiner from './components/AddJoiner';
+import './App.css'; //
+import Navigation from './Navigation';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navigation /> {/* Include the Navigation component */}
+        <Switch>
+          {/* Define your routes */}
+          <Route path="/add-links" component={AddLinks} />
+          <Route path="/login" component={Login} />
+          <Route path="/add-joiner" component={AddJoiner} />
+        </Switch>
+      </div>
+    </Router>
+  );
+}
+
