@@ -1,0 +1,107 @@
+// App.js
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Login';
+import Dashboard from './Dashboard';
+
+function App() {
+  const [user, setUser] = useState(null); // Initialize user to null
+
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<Login setUser={setUser} />} />
+        <Route
+          path="/dashboard"
+          element={user ? <Dashboard user={user} setUser={setUser} /> : null}
+        />
+      </Routes>
+    </div>
+  );
+}
+
+export default App;
+
+// Login.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function Login({ setUser }) {
+  const navigate = useNavigate();
+  const [staffId, setStaffId] = useState('');
+
+  const handleLogin = () => {
+    // Perform authentication (e.g., check credentials)
+    // For simplicity, always set the user upon login
+    setUser({ staffId });
+    navigate('/dashboard'); // Redirect to the dashboard upon login
+  }
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <input
+        type="text"
+        placeholder="Staff ID"
+        value={staffId}
+        onChange={(e) => setStaffId(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+}
+
+export default Login;
+
+
+// Layout.js
+import React from 'react';
+import Navigation from './Navigation';
+
+function Layout({ children }) {
+  return (
+    <div>
+      <Navigation />
+      <main>{children}</main>
+    </div>
+  );
+}
+
+export default Layout;
+
+
+// Dashboard.js
+import React from 'react';
+import Layout from './Layout';
+
+function Dashboard({ user, setUser }) {
+  return (
+    <Layout>
+      <div>
+        <h2>Dashboard</h2>
+        <p>Welcome, {user.staffId}!</p>
+        {/* Add your dashboard content here */}
+      </div>
+    </Layout>
+  );
+}
+
+export default Dashboard;
+
+
+// AddLinks.js
+import React from 'react';
+import Layout from './Layout';
+
+function AddLinks() {
+  return (
+    <Layout>
+      <div>
+        <h2>Add Links</h2>
+        {/* Add your content for adding links here */}
+      </div>
+    </Layout>
+  );
+}
+
+export default AddLinks;
