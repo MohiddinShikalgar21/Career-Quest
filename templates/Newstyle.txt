@@ -37,3 +37,34 @@ const MyComponent = ({ requests }) => {
 };
 
 export default MyComponent;
+
+/* Additional styles for comments */
+.comment-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  max-width: 70%;
+}
+
+.comment-metadata {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.commenter {
+  font-weight: bold;
+}
+
+.comment-date,
+.comment-time {
+  color: #888;
+  font-size: 0.8em;
+}
+
+.comment-text {
+  margin: 0;
+}
+
