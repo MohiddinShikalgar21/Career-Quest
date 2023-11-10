@@ -1,21 +1,39 @@
-/* Define styles for the component */
-.element-heading {
-  font-weight: bold;
-}
+import React from 'react';
+import './MyComponent.css'; // Import the CSS file
 
-.comments-list {
-  list-style-type: none;
-  padding: 0;
-}
+const formatDate = (timestamp) => {
+  const date = new Date(timestamp);
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  return date.toLocaleDateString(undefined, options);
+};
 
-.comment-item {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
+const formatTime = (timestamp) => {
+  const date = new Date(timestamp);
+  return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+};
 
-.comment-text {
-  margin: 0;
-}
+const MyComponent = ({ requests }) => {
+  return (
+    <div>
+      <p className="element-heading">Element: {requests.element}</p>
+      <div>
+        <p className="element-heading">Comments:</p>
+        <ul className="comments-list">
+          {requests.comments &&
+            requests.comments.map((comment, index) => (
+              <li key={index} className="comment-item">
+                <p className="comment-metadata">
+                  <span className="commenter">{comment.commenter}</span>
+                  <span className="comment-date">{formatDate(comment.timestamp)}</span>
+                  <span className="comment-time">{formatTime(comment.timestamp)}</span>
+                </p>
+                <p className="comment-text">{comment.details}</p>
+              </li>
+            ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
 
+export default MyComponent;
