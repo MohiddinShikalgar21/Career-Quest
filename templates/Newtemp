@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Expense Request</title>
+</head>
+<body style="font-family: Arial, sans-serif;">
+
+  <div style="background-color: #f4f4f4; padding: 20px;">
+    <h2 style="color: #333;">New Expense Approval Required</h2>
+    <p style="color: #666;">Dear Approver,</p>
+    <p style="color: #666;">A new expense request has been created and requires your approval on the EzyOps platform.</p>
+    
+    <div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+      <strong>Expense Details:</strong>
+      <ul style="list-style: none; padding: 0;">
+        <li><strong>Expense ID:</strong> #12345</li>
+        <li><strong>Amount:</strong> $500</li>
+        <li><strong>Description:</strong> Office Supplies</li>
+      </ul>
+    </div>
+    
+    <p style="color: #666; margin-top: 20px;">Please log in to the EzyOps platform to review and approve this request.</p>
+    
+    <p style="color: #666; margin-top: 20px;">Thank you,</p>
+    <p style="color: #666;">Your Company Expense Team</p>
+  </div>
+
+</body>
+</html>
+
