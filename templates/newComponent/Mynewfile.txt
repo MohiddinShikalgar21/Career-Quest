@@ -1,0 +1,39 @@
+import java.util.concurrent.*;
+
+public class EmailSenderWithRetry {
+
+    private static ExecutorService executor = Executors.newSingleThreadExecutor();
+    private static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+    public static void main(String[] args) {
+        // Simulating sending an email, assuming it fails initially
+        boolean emailSent = sendEmail("email subject", "receiver@example.com", "email body");
+
+        if (!emailSent) {
+            // Schedule a task to retry sending the email after a certain delay
+            scheduler.scheduleWithFixedDelay(() -> {
+                boolean retryEmailSent = sendEmail("email subject", "receiver@example.com", "email body");
+                if (retryEmailSent) {
+                    scheduler.shutdown(); // Email sent, no need for further retries
+                }
+            }, 5, 10, TimeUnit.SECONDS); // Retry after 5 seconds, then every 10 seconds
+        }
+    }
+
+    private static boolean sendEmail(String subject, String receiver, String body) {
+        // Code to attempt sending email
+        // Return true if email sent successfully, false if failed
+        // Replace this with your email sending logic
+        boolean emailSentSuccessfully = false; // Replace this with your actual email sending logic
+
+        if (emailSentSuccessfully) {
+            System.out.println("Email sent successfully");
+            return true;
+        } else {
+            System.out.println("Email sending failed");
+            return false;
+        }
+    }
+
+
+}
