@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Expense Request</title>
+</head>
+<body style="font-family: 'Arial', 'Helvetica', sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f9f9f9;">
+
+  <div style="width: 80%; margin: 20px auto; background-color: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #333; margin-bottom: 30px;">New Expense Approval Required</h2>
+    <p style="color: #555; margin-bottom: 20px;">Dear Approver,</p>
+    <p style="color: #555; margin-bottom: 20px;">A new expense request has been created and requires your approval on the EzyOps platform.</p>
+    
+    <div style="border-top: 2px solid #ddd; padding-top: 20px;">
+      <strong style="color: #333; display: block; margin-bottom: 5px;">Expense Details:</strong>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 5px;"><strong>Expense ID:</strong> #12345</li>
+        <li style="margin-bottom: 5px;"><strong>Amount:</strong> $500</li>
+        <li style="margin-bottom: 5px;"><strong>Description:</strong> Office Supplies</li>
+      </ul>
+    </div>
+    
+    <p style="color: #555; margin-bottom: 20px;">Please log in to the EzyOps platform to review and approve this request.</p>
+    
+    <a href="#" style="display: inline-block; padding: 12px 24px; text-decoration: none; background-color: #3498db; color: #fff; border-radius: 4px; transition: background-color 0.3s ease;">Review Expense</a>
+
+    <p style="color: #555; margin-top: 20px;">Thank you,</p>
+    <p style="color: #555;">Your Company Expense Team</p>
+  </div>
+
+</body>
+</html>
