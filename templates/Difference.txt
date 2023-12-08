@@ -1,0 +1,53 @@
+public class NumberDifference {
+    public static String findDiff(String num1, String num2) {
+        // Pad the numbers with zeros to make their lengths equal
+        int maxLength = Math.max(num1.length(), num2.length());
+        num1 = padZeros(num1, maxLength);
+        num2 = padZeros(num2, maxLength);
+        
+        StringBuilder result = new StringBuilder();
+        int borrow = 0;
+        
+        // Perform subtraction digit by digit
+        for (int i = maxLength - 1; i >= 0; i--) {
+            int digit1 = num1.charAt(i) - '0';
+            int digit2 = num2.charAt(i) - '0';
+            
+            int diff = (digit1 - borrow) - digit2;
+            
+            if (diff < 0) {
+                diff += 10;
+                borrow = 1;
+            } else {
+                borrow = 0;
+            }
+            
+            result.insert(0, diff);
+        }
+        
+        // Remove leading zeros
+        while (result.length() > 1 && result.charAt(0) == '0') {
+            result.deleteCharAt(0);
+        }
+        
+        return result.toString();
+    }
+    
+    // Helper function to pad zeros
+    private static String padZeros(String num, int length) {
+        StringBuilder paddedNum = new StringBuilder(num);
+        while (paddedNum.length() < length) {
+            paddedNum.insert(0, '0');
+        }
+        return paddedNum.toString();
+    }
+
+    public static void main(String[] args) {
+        String number1 = "123.456";
+        String number2 = "78.90";
+
+        String difference = findDiff(number1, number2);
+        System.out.println("Difference: " + difference);
+    }
+}
+
