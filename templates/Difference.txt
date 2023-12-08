@@ -14,7 +14,8 @@ public class NumberDifference {
         num1Parts[1] = padZeros(num1Parts[1], decMaxLength, false);
         num2Parts[1] = padZeros(num2Parts[1], decMaxLength, false);
 
-        StringBuilder result = new StringBuilder();
+        StringBuilder intResult = new StringBuilder();
+        StringBuilder decResult = new StringBuilder();
         int borrow = 0;
 
         // Perform subtraction for the integer part
@@ -31,15 +32,13 @@ public class NumberDifference {
                 borrow = 0;
             }
 
-            result.insert(0, diff);
+            intResult.insert(0, diff);
         }
 
-        result.insert(result.length() - decMaxLength, '.');
-
         // Perform subtraction for the decimal part
-        for (int i = intMaxLength; i < intMaxLength + decMaxLength; i++) {
-            int digit1 = num1Parts[1].charAt(i - intMaxLength) - '0';
-            int digit2 = num2Parts[1].charAt(i - intMaxLength) - '0';
+        for (int i = decMaxLength - 1; i >= 0; i--) {
+            int digit1 = num1Parts[1].charAt(i) - '0';
+            int digit2 = num2Parts[1].charAt(i) - '0';
 
             int diff = (digit1 - borrow) - digit2;
 
@@ -50,10 +49,14 @@ public class NumberDifference {
                 borrow = 0;
             }
 
-            result.append(diff);
+            decResult.insert(0, diff);
         }
 
-        return result.toString();
+        // Insert the decimal point in the correct position
+        decResult.insert(0, '.');
+        intResult.append(decResult);
+
+        return intResult.toString();
     }
 
     // Helper function to pad zeros
@@ -81,4 +84,7 @@ public class NumberDifference {
         System.out.println("Difference: " + difference);
     }
 }
+
+
+
 
