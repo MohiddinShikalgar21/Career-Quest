@@ -1,44 +1,75 @@
 public class NumberDifference {
     public static String findDiff(String num1, String num2) {
-        // Pad the numbers with zeros to make their lengths equal
-        int maxLength = Math.max(num1.length(), num2.length());
-        num1 = padZeros(num1, maxLength);
-        num2 = padZeros(num2, maxLength);
-        
+        // Split the numbers into integer and decimal parts
+        String[] num1Parts = num1.split("\\.");
+        String[] num2Parts = num2.split("\\.");
+
+        // Pad the integer parts with zeros to make their lengths equal
+        int intMaxLength = Math.max(num1Parts[0].length(), num2Parts[0].length());
+        num1Parts[0] = padZeros(num1Parts[0], intMaxLength);
+        num2Parts[0] = padZeros(num2Parts[0], intMaxLength);
+
+        // Pad the decimal parts with zeros to make their lengths equal
+        int decMaxLength = Math.max(num1Parts[1].length(), num2Parts[1].length());
+        num1Parts[1] = padZeros(num1Parts[1], decMaxLength, false);
+        num2Parts[1] = padZeros(num2Parts[1], decMaxLength, false);
+
         StringBuilder result = new StringBuilder();
         int borrow = 0;
-        
-        // Perform subtraction digit by digit
-        for (int i = maxLength - 1; i >= 0; i--) {
-            int digit1 = num1.charAt(i) - '0';
-            int digit2 = num2.charAt(i) - '0';
-            
+
+        // Perform subtraction for the integer part
+        for (int i = intMaxLength - 1; i >= 0; i--) {
+            int digit1 = num1Parts[0].charAt(i) - '0';
+            int digit2 = num2Parts[0].charAt(i) - '0';
+
             int diff = (digit1 - borrow) - digit2;
-            
+
             if (diff < 0) {
                 diff += 10;
                 borrow = 1;
             } else {
                 borrow = 0;
             }
-            
+
             result.insert(0, diff);
         }
-        
-        // Remove leading zeros
-        while (result.length() > 1 && result.charAt(0) == '0') {
-            result.deleteCharAt(0);
+
+        result.insert(result.length() - decMaxLength, '.');
+
+        // Perform subtraction for the decimal part
+        for (int i = intMaxLength; i < intMaxLength + decMaxLength; i++) {
+            int digit1 = num1Parts[1].charAt(i - intMaxLength) - '0';
+            int digit2 = num2Parts[1].charAt(i - intMaxLength) - '0';
+
+            int diff = (digit1 - borrow) - digit2;
+
+            if (diff < 0) {
+                diff += 10;
+                borrow = 1;
+            } else {
+                borrow = 0;
+            }
+
+            result.append(diff);
         }
-        
+
         return result.toString();
     }
-    
+
     // Helper function to pad zeros
-    private static String padZeros(String num, int length) {
+    private static String padZeros(String num, int length, boolean padBeforeDecimal) {
         StringBuilder paddedNum = new StringBuilder(num);
-        while (paddedNum.length() < length) {
-            paddedNum.insert(0, '0');
+
+        if (padBeforeDecimal) {
+            while (paddedNum.length() < length) {
+                paddedNum.insert(0, '0');
+            }
+        } else {
+            while (paddedNum.length() < length) {
+                paddedNum.append('0');
+            }
         }
+
         return paddedNum.toString();
     }
 
